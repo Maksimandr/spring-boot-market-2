@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/common-head">
+    <title>Оформление заказа</title>
+</head>
+<body>
+<nav th:replace="fragments/nav-bar::nav-bar">
+</nav>
+<div class="container">
+    <div class="row justify-content-center g-0">
+        <div class="col-6">
+            <h2>Статистика времени выполнения</h2>
+            <div>
+                <div class="row justify-content-center g-0">
+                    <div th:text="${'Название сервиса: ' + service}"></div>
+                    <div th:text="${'Время выполнения: ' + executionTime + ' ms'}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

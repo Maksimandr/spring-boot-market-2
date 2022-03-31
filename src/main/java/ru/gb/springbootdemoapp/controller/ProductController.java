@@ -22,15 +22,15 @@ public class ProductController {
   }
 
   @GetMapping
-  public String getAllStudents(Model model) {
-    List<ProductDto> students =  productService.getAll().stream()
+  public String getAllProducts(Model model) {
+    List<ProductDto> productDtoList =  productService.getAll().stream()
         .map(productMapper::productToProductDto).collect(Collectors.toList());
-    model.addAttribute("products", students);
+    model.addAttribute("products", productDtoList);
     return "product_list";
   }
 
   @GetMapping("/info/{id}")
-  public String getStudentInfo(@PathVariable Long id, Model model) {
+  public String getProductInfo(@PathVariable Long id, Model model) {
     model.addAttribute("product", productMapper.productToProductDto(productService.findById(id).orElse(null)));
     return "product_info";
   }
