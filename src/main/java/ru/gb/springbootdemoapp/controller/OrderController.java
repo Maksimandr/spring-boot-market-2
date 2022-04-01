@@ -32,10 +32,13 @@ public class OrderController {
 
     @GetMapping
     public String getOrderPage(Principal principal, Model model) {
-        User user = principal != null ? userRepository.findByLogin(principal.getName()).orElse(null) : null;
-        model.addAttribute("user", user);
 
-        String customerAddress = user != null ? customerAddressService.findById(user.getId()).map(CustomerAddress::getAddress).orElse(null) : null;
+        User user = principal != null ? userRepository.findByLogin(principal.getName()).orElse(null) : null;
+
+        String userEmail = user != null ? user.getEmail() : null;
+        model.addAttribute("userEmail", userEmail);
+
+        String customerAddress = user != null ? customerAddressService.findById(user.getId()).map(CustomerAddress::getAddress).orElse("") : "";
         model.addAttribute("customerAddress", customerAddress);
 
         return "order";

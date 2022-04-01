@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS order_items
     id         BIGSERIAL PRIMARY KEY,
     order_id  BIGINT REFERENCES orders (id),
     product_id BIGINT REFERENCES products (id),
-    price      FLOAT NOT NULL,
+    price      DOUBLE NOT NULL,
     quantity   INTEGER
 );
 
