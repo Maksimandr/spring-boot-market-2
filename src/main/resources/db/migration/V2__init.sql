@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS order_items
     id         BIGSERIAL PRIMARY KEY,
     order_id  BIGINT REFERENCES orders (id),
     product_id BIGINT REFERENCES products (id),
-    price      FLOAT NOT NULL,
+    price      DOUBLE NOT NULL,
     quantity   INTEGER
 );
 
@@ -76,3 +76,6 @@ VALUES ('Ноутбук Lenovo', 44990, 1),
        ('Телефон iPhone', 66490, 1),
        ('Стиральная машинка LG', 32290, 2),
        ('Телевизор Samsung', 32290, 1);
+
+INSERT INTO customer_addresses(address, customer_id)
+VALUES ('Москва, Тверская, 1', 1);
